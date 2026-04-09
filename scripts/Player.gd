@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var aim_ray: RayCast3D
+@onready var aim_ray: RayCast3D = $Cam/AimRay
 const HOLE = preload("uid://tpbbr7m0pveq")
 
 const SPEED:float = 3.0

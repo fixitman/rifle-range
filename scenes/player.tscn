@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://bfg1ywhfw7xvw"]
 
 [ext_resource type="Script" uid="uid://5xkymndg5vf8" path="res://scripts/Player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://chjbeq4yqp8fx" path="res://scenes/character_body_3d.gd" id="2_g2els"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
 radius = 0.25
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 
-[node name="Player" type="CharacterBody3D" unique_id=630233011 node_paths=PackedStringArray("aim_ray")]
+[node name="Player" type="CharacterBody3D" unique_id=630233011]
+collision_layer = 3
 script = ExtResource("1_4flbx")
-aim_ray = NodePath("Cam/AimRay")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=337165641]
 unique_name_in_owner = true
@@ -22,15 +21,11 @@ target_position = Vector3(0, 0, -100)
 collision_mask = 14
 collide_with_areas = true
 
-[node name="Marker3D" type="Marker3D" parent="Cam/AimRay" unique_id=1546165871]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Cam" unique_id=1274682291]
-script = ExtResource("2_g2els")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=691618103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9466529, 0.5667441)
+visible = false
 mesh = SubResource("SphereMesh_aqk2v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1433167852]
-shape = SubResource("BoxShape3D_036b0")
-disabled = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3vyb7")

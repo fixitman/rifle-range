@@ -39,7 +39,8 @@ script = ExtResource("1_tlwt5")
 
 [node name="LeftWall" type="StaticBody3D" parent="Environment/Walls" unique_id=373948225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 2, -30)
-collision_layer = 8
+collision_layer = 9
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls/LeftWall" unique_id=975731745]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -49,7 +50,7 @@ shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="RightWall" type="StaticBody3D" parent="Environment/Walls" unique_id=1543485897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, -30)
-collision_layer = 8
+collision_layer = 9
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls/RightWall" unique_id=1473983798]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -59,7 +60,7 @@ shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Back" type="StaticBody3D" parent="Environment/Walls" unique_id=1457198221]
 transform = Transform3D(-4.371139e-08, 0, 0.5, 0, 1, 0, -1, 0, -2.1855694e-08, 0, 2, -60.5)
-collision_layer = 8
+collision_layer = 9
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls/Back" unique_id=1472326972]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -69,8 +70,7 @@ shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Floor" type="StaticBody3D" parent="Environment" unique_id=888260011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -30)
-visible = false
-collision_layer = 8
+collision_layer = 9
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor" unique_id=109742132]
 mesh = SubResource("BoxMesh_fj7yv")
