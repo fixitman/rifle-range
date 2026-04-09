@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://caismldkn6jwp" path="res://scripts/world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bfg1ywhfw7xvw" path="res://scenes/player.tscn" id="2_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://cf4xltjjr6sae" path="res://resources/icon.svg" id="2_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://tpbbr7m0pveq" path="res://scenes/hole.tscn" id="5_71j4m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
 size = Vector3(0.5, 4, 60)
@@ -40,12 +39,12 @@ targets = [NodePath("Row/Target"), NodePath("Row/Target2"), NodePath("Row/Target
 [node name="Player" parent="." unique_id=630233011 instance=ExtResource("2_aqk2v")]
 
 [node name="Environment" type="Node3D" parent="." unique_id=1191694080]
-visible = false
 
 [node name="Walls" type="Node3D" parent="Environment" unique_id=2026253511]
 
 [node name="LeftWall" type="StaticBody3D" parent="Environment/Walls" unique_id=373948225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 2, -30)
+collision_layer = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls/LeftWall" unique_id=975731745]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -54,6 +53,7 @@ mesh = SubResource("BoxMesh_f3sb7")
 shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="RightWall" type="StaticBody3D" parent="Environment/Walls" unique_id=1543485897]
+collision_layer = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls/RightWall" unique_id=1473983798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 2, -30)
@@ -64,6 +64,7 @@ shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Back" type="StaticBody3D" parent="Environment/Walls" unique_id=1457198221]
 transform = Transform3D(-4.371139e-08, 0, 0.5, 0, 1, 0, -1, 0, -2.1855694e-08, 0, 2, -60.5)
+collision_layer = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls/Back" unique_id=1472326972]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -73,6 +74,7 @@ shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Floor" type="StaticBody3D" parent="Environment" unique_id=888260011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -30)
+collision_layer = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor" unique_id=109742132]
 mesh = SubResource("BoxMesh_fj7yv")
@@ -172,8 +174,6 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9098039, 0.10980392, 0.13725491, 1)
-
-[node name="Hole" parent="." unique_id=690108043 instance=ExtResource("5_71j4m")]
 
 [connection signal="button_down" from="HUD/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="HUD/Shoot" to="Player" method="_on_shoot_button_down"]

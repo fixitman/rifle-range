@@ -15,6 +15,7 @@ aim_ray = NodePath("Cam/AimRay")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 current = true
+fov = 29.1
 
 [node name="AimRay" type="RayCast3D" parent="Cam" unique_id=1172259739]
 target_position = Vector3(0, 0, -100)

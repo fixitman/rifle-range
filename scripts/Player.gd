@@ -17,7 +17,9 @@ func _physics_process(delta: float) -> void:
 		
 #==============================================
 func _on_shoot_button_down() -> void:
+	print("Shooting")
 	if aim_ray.is_colliding():
+		print("Hit")
 		var collider:Node3D = aim_ray.get_collider()
 		var tar:Node3D = collider.get_parent()
 		#if tar.has_method("reset"):			
@@ -25,14 +27,18 @@ func _on_shoot_button_down() -> void:
 			
 		var collision_point = aim_ray.get_collision_point()
 		var collision_normal = aim_ray.get_collision_normal()
+		print(collision_point)
+		print(collision_normal)
 		
-		var hole = HOLE.instantiate()
+		var hole:Node3D = HOLE.instantiate()
 		get_tree().root.add_child(hole)
 		hole.global_position = collision_point
-		if collision_normal.is_equal_approx(Vector3.UP):
-			hole.look_at(collision_point + Vector3.RIGHT, collision_normal)
-		else:
-			hole.look_at(collision_point + collision_normal, Vector3.UP)
+		print("gto = ",hole.global_transform.origin)
+		print("look at = ",hole.global_transform.origin + collision_normal)
+		hole.look_at(hole.global_transform.origin + collision_normal,Vector3.UP)
+		hole.rotate_object_local(Vector3(1,0,0),90)
+		
+		
 		
 		
 #============================================

@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cf4xltjjr6sae" path="res://resources/icon.svg" id="1_lerre"]
 
-[node name="Hole" type="Decal" unique_id=690108043]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004394576, 0, -0.025975704)
-layers = 0
-size = Vector3(1, 1, 1)
+[node name="Decal" type="Decal" unique_id=76310929]
+layers = 15
+size = Vector3(0.5, 0.5, 0.5)
 texture_albedo = ExtResource("1_lerre")
