@@ -116,11 +116,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="HUD" type="Control" parent="." unique_id=933864427]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
 size_flags_horizontal = 4
 
 [node name="Button" type="Button" parent="HUD" unique_id=1701490509]
@@ -155,4 +154,56 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9098039, 0.10980392, 0.13725491, 1)
 
+[node name="CamSpeed" type="SpinBox" parent="HUD" unique_id=654468008]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_top = 50.0
+offset_right = -54.5
+offset_bottom = 81.0
+grow_horizontal = 0
+min_value = 10.0
+page = 10.0
+value = 25.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+
+[node name="MovSpeed" type="SpinBox" parent="HUD" unique_id=375906425]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -140.0
+offset_top = 104.0
+offset_right = -53.5
+offset_bottom = 135.0
+min_value = 1.0
+max_value = 20.0
+value = 3.0
+alignment = 2
+
+[node name="LookLabel" type="Label" parent="HUD" unique_id=686045771]
+layout_mode = 0
+offset_left = -260.0
+offset_top = 50.0
+offset_right = -171.0
+offset_bottom = 73.0
+text = "Look Speed"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MoveLabel" type="Label" parent="HUD" unique_id=931189966]
+layout_mode = 0
+offset_left = -260.0
+offset_top = 104.0
+offset_right = -166.0
+offset_bottom = 127.0
+text = "Move Speed"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="button_down" from="HUD/Button" to="." method="_on_button_button_down"]
+[connection signal="value_changed" from="HUD/CamSpeed" to="Player" method="_on_cam_speed_value_changed"]
+[connection signal="value_changed" from="HUD/MovSpeed" to="Player" method="_on_mov_speed_value_changed"]
