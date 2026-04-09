@@ -1,12 +1,12 @@
 extends Node3D
 
-@export var targets: Array[Node3D]
-
+var targets:Array[Node] = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	targets = get_tree().get_nodes_in_group("targets")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,6 +19,3 @@ func _on_button_button_down() -> void:
 		if !target.triggered:
 			target.trigger()
 		
-
-func _on_shoot_button_down() -> void:
-	pass # Replace with function body.
