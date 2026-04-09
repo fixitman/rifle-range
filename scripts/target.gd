@@ -2,7 +2,6 @@ extends Node3D
 
 var triggered:bool = false
 var height:float = 2.0
-@export var row:int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

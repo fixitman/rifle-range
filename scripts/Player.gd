@@ -11,17 +11,18 @@ const JUMP_VELOCITY = 4.5
 
 func _physics_process(delta: float) -> void:
 	
-	var direction = Input.get_vector("m_left","m_right","m_fwd","m_back")
-	if direction:
-		velocity = Vector3(direction.x,0,direction.y).normalized() * SPEED
-	else:
-		velocity = Vector3.ZERO
+	var velocity_direction = Input.get_vector("m_left","m_right","m_fwd","m_back")
+	var y_rotation_direction = Input.get_axis("c_left","c_right")
+	var x_rotation_direction = Input.get_axis("c_up","c_down")
+	
+	rotation_degrees.y -= y_rotation_direction * CAM_SPEED * delta
+	%Cam.rotate_x( deg_to_rad( x_rotation_direction * CAM_SPEED * delta))
+	
+	velocity = transform.basis * Vector3(velocity_direction.x, 0, velocity_direction.y) * SPEED
 	
 	
-	var camera_input_dir := Input.get_vector("c_left","c_right","c_up","c_down")
-	if camera_input_dir:
-		rotation_degrees.y -= camera_input_dir.x * CAM_SPEED * delta
-		%Cam.rotation_degrees.x += camera_input_dir.y * CAM_SPEED * delta
+	
+	
 		
 	move_and_slide()	
 	
