@@ -11,10 +11,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("targets"):
+		reset_targets()
+		
 
 
-func _on_button_button_down() -> void:
+func reset_targets() -> void:
 	for target in targets:
 		if !target.triggered:
 			target.trigger()

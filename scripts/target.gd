@@ -22,10 +22,3 @@ func reset() -> void:
 		%HitBox.global_translate(Vector3(0.0,-height,0.0))
 		triggered = false
 	
-
-
-func _on_button_button_down() -> void:
-	if triggered:
-		reset()
-	else:
-		trigger()
