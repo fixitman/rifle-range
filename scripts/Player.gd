@@ -3,10 +3,15 @@ extends CharacterBody3D
 @onready var aim_ray: RayCast3D = $Cam/AimRay
 const HOLE = preload("uid://tpbbr7m0pveq")
 
-var MOVE_SPEED:float = 3.0
-var CAM_SPEED:float = 10
 const JUMP_VELOCITY = 4.5
+var move_speed:float = 3.0
+var camera_speed:float = 10
+var settings: Settings
 
+func _ready() -> void:
+	settings = Settings.load_or_create()
+	camera_speed = settings.camera_speed
+	move_speed = settings.move_speed
 
 
 
@@ -16,14 +21,10 @@ func _physics_process(delta: float) -> void:
 	var y_rotation_direction = Input.get_axis("c_left","c_right")
 	var x_rotation_direction = Input.get_axis("c_up","c_down")
 	
-	rotation_degrees.y -= y_rotation_direction * CAM_SPEED * delta
-	%Cam.rotate_x( deg_to_rad( x_rotation_direction * CAM_SPEED * delta))
+	rotation_degrees.y -= y_rotation_direction * camera_speed * delta
+	%Cam.rotate_x( deg_to_rad( x_rotation_direction * camera_speed * delta))
 	
-	velocity = transform.basis * Vector3(velocity_direction.x, 0, velocity_direction.y) * MOVE_SPEED
-	
-	
-	
-	
+	velocity = transform.basis * Vector3(velocity_direction.x, 0, velocity_direction.y) * move_speed
 		
 	move_and_slide()	
 	
@@ -63,13 +64,3 @@ func place_hole(position:Vector3, normal:Vector3) -> void:
 	print("look at = ",hole.global_transform.origin + normal)
 	hole.look_at(hole.global_transform.origin + normal,Vector3.UP)
 	hole.rotate_object_local(Vector3(1,0,0),90)
-
-
-
-
-func _on_cam_speed_value_changed(value: float) -> void:
-	CAM_SPEED = value
-
-
-func _on_mov_speed_value_changed(value: float) -> void:
-	MOVE_SPEED = value
