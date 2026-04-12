@@ -9,11 +9,8 @@ var camera_speed:float = 10
 var settings: Settings
 
 func _ready() -> void:
-	settings = Settings.load_or_create()
-	camera_speed = settings.camera_speed
-	move_speed = settings.move_speed
-
-
+	update_settings()
+	settings.settings_changed.connect(_on_settings_changed)
 
 func _physics_process(delta: float) -> void:
 	
@@ -30,10 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-		
-		
-	
-#==============================================
+
 func shoot() -> void:
 	print("Shooting")
 	if aim_ray.is_colliding():
@@ -51,10 +45,7 @@ func shoot() -> void:
 			print(collision_point)
 			print(collision_normal)
 			place_hole(collision_point,collision_normal)
-		
-			
-		
-		
+
 func place_hole(position:Vector3, normal:Vector3) -> void:
 	
 	var hole:Node3D = HOLE.instantiate()
@@ -64,3 +55,11 @@ func place_hole(position:Vector3, normal:Vector3) -> void:
 	print("look at = ",hole.global_transform.origin + normal)
 	hole.look_at(hole.global_transform.origin + normal,Vector3.UP)
 	hole.rotate_object_local(Vector3(1,0,0),90)
+
+func update_settings():
+	settings = Settings.load_or_create()
+	camera_speed = settings.camera_speed
+	move_speed = settings.move_speed
+
+func _on_settings_changed():
+	update_settings()

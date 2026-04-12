@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://caismldkn6jwp" path="res://scripts/world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bfg1ywhfw7xvw" path="res://scenes/player.tscn" id="2_aqk2v"]
 [ext_resource type="Material" uid="uid://d373rmjgtg5ql" path="res://resources/white.tres" id="3_k0juu"]
-[ext_resource type="Script" uid="uid://dk7msodsrxlh1" path="res://scenes/hud.gd" id="5_71j4m"]
+[ext_resource type="Script" uid="uid://dk7msodsrxlh1" path="res://scripts/hud.gd" id="5_71j4m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
 size = Vector3(0.5, 4, 60)
@@ -140,6 +140,8 @@ min_value = 10.0
 page = 10.0
 value = 25.0
 rounded = true
+allow_greater = true
+allow_lesser = true
 alignment = 2
 update_on_text_changed = true
 
@@ -157,6 +159,8 @@ grow_horizontal = 0
 min_value = 1.0
 max_value = 20.0
 value = 3.0
+allow_greater = true
+allow_lesser = true
 alignment = 2
 
 [node name="LookLabel" type="Label" parent="HUD" unique_id=686045771]

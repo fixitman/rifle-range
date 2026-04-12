@@ -4,11 +4,8 @@ class_name Settings extends Resource
 @export var move_speed:float = 4.5
 const SAVE_PATH: String = "user://range-settings.tres"
 
-signal settings_changed(settings:Settings)
+signal settings_changed()
 
-func save() ->void:
-	ResourceSaver.save(self,SAVE_PATH)
-	settings_changed.emit()
 	
 static func load_or_create() -> Settings:
 	var s = ResourceLoader.load(SAVE_PATH) as Settings  
@@ -17,3 +14,6 @@ static func load_or_create() -> Settings:
 		s.save()
 	return s
 	 
+func save() ->void:
+	settings_changed.emit()
+	ResourceSaver.save(self,SAVE_PATH)
