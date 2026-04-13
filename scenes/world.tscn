@@ -219,6 +219,9 @@ grow_horizontal = 0
 allow_greater = true
 alignment = 2
 
+[node name="Target" parent="HUD" unique_id=407538972 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2557379, 6.474683, -7.9271965)
+
 [connection signal="value_changed" from="HUD/CameraSpeed" to="HUD" method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="HUD/MoveSpeed" to="HUD" method="_on_move_speed_value_changed"]
 [connection signal="value_changed" from="HUD/CameraAccel" to="HUD" method="_on_camera_accel_value_changed"]
