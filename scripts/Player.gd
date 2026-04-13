@@ -7,6 +7,10 @@ const HOLE = preload("uid://tpbbr7m0pveq")
 const JUMP_VELOCITY = 4.5
 var move_speed:float = 3.0
 var camera_speed:float = 10
+var camera_accel:float = 28
+var current_camera_speed:float = 0
+var current_camera_speed_x:float = 0
+
 var settings: Settings
 
 func _ready() -> void:
@@ -19,9 +23,21 @@ func _physics_process(delta: float) -> void:
 	var y_rotation_direction = Input.get_axis("c_left","c_right")
 	var x_rotation_direction = Input.get_axis("c_up","c_down")
 	
-	rotation_degrees.y -= y_rotation_direction * camera_speed * delta
-	%Cam.rotate_x( deg_to_rad( x_rotation_direction * camera_speed * delta))
+	#rotation_degrees.y -= y_rotation_direction * camera_speed * delta
+	if y_rotation_direction:
+		var target_camera_speed = camera_speed * -y_rotation_direction
+		current_camera_speed = move_toward(current_camera_speed,target_camera_speed,camera_accel * delta)
+		rotate_y(deg_to_rad(current_camera_speed * delta))
+	else:
+		current_camera_speed = 0
 	
+	if x_rotation_direction:
+		var target_camera_speed = camera_speed * x_rotation_direction
+		current_camera_speed_x = move_toward(current_camera_speed_x,target_camera_speed,camera_accel * delta)
+		%Cam.rotate_x( deg_to_rad( current_camera_speed_x * delta))
+	else:
+		current_camera_speed_x = 0
+		
 	velocity = transform.basis * Vector3(velocity_direction.x, 0, velocity_direction.y) * move_speed
 		
 	move_and_slide()	
@@ -62,6 +78,7 @@ func update_settings():
 	settings = Settings.load_or_create()
 	camera_speed = settings.camera_speed
 	move_speed = settings.move_speed
+	camera_accel = settings.camera_accel
 
 func _on_settings_changed():
 	update_settings()

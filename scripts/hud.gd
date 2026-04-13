@@ -2,6 +2,7 @@ extends Control
 
 @onready var camera_speed: SpinBox = %CameraSpeed
 @onready var move_speed: SpinBox = %MoveSpeed
+@onready var camera_accel: SpinBox = $CameraAccel
 
 
 var settings: Settings
@@ -15,12 +16,16 @@ func _ready() -> void:
 	move_speed.get_line_edit().focus_mode = Control.FOCUS_NONE
 	move_speed.get_line_edit().connect("text_entered",on_text_entered)
 	
+	camera_accel.get_line_edit().focus_mode = Control.FOCUS_NONE
+	camera_accel.get_line_edit().connect("text_entered",on_text_entered)
+	
 	settings = Settings.load_or_create()
 	if camera_speed:
 		camera_speed.value = settings.camera_speed
 	if move_speed:
 		move_speed.value = settings.move_speed
-
+	if camera_accel:
+		camera_accel.value = settings.camera_accel
 
 func _on_camera_speed_value_changed(value: float) -> void:
 	settings.camera_speed = value
@@ -33,3 +38,8 @@ func _on_move_speed_value_changed(value: float) -> void:
 	
 func on_text_entered():
 	release_focus()
+
+
+func _on_camera_accel_value_changed(value: float) -> void:
+	settings.camera_accel = value
+	settings.save()

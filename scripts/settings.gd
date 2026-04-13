@@ -2,6 +2,8 @@ class_name Settings extends Resource
 
 @export var camera_speed: float = 25.0
 @export var move_speed:float = 4.5
+@export var camera_accel:float = 10.0
+
 const SAVE_PATH: String = "user://range-settings.tres"
 
 signal settings_changed()

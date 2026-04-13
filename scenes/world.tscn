@@ -206,5 +206,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74903154, 0.113158755, 0.27039522, 1)
 
+[node name="CameraAccel" type="SpinBox" parent="HUD" unique_id=966049165]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_top = 143.0
+offset_right = -54.5
+offset_bottom = 174.0
+grow_horizontal = 0
+allow_greater = true
+alignment = 2
+
 [connection signal="value_changed" from="HUD/CameraSpeed" to="HUD" method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="HUD/MoveSpeed" to="HUD" method="_on_move_speed_value_changed"]
+[connection signal="value_changed" from="HUD/CameraAccel" to="HUD" method="_on_camera_accel_value_changed"]
