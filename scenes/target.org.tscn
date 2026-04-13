@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://clbilrw3wi3nw"]
+[gd_scene format=3 uid="uid://dgw4s422dbbhg"]
 
-[ext_resource type="Script" uid="uid://ctr4hv7a5box8" path="res://scripts/target.gd" id="1_5ebp1"]
-[ext_resource type="Material" uid="uid://cgkb7tdnb78r8" path="res://resources/black.tres" id="2_uqips"]
-[ext_resource type="Material" uid="uid://d373rmjgtg5ql" path="res://resources/white.tres" id="3_ufrq1"]
+[ext_resource type="Script" uid="uid://ctr4hv7a5box8" path="res://scripts/target.gd" id="1_ggk8l"]
+[ext_resource type="Material" uid="uid://cgkb7tdnb78r8" path="res://resources/black.tres" id="2_m4xjf"]
+[ext_resource type="Material" uid="uid://d373rmjgtg5ql" path="res://resources/white.tres" id="3_0b480"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d2pw"]
 albedo_color = Color(0.8173136, 0.32949594, 0.41042614, 1)
@@ -15,13 +15,13 @@ size = Vector3(2.05, 2.1, 0.3)
 size = Vector3(2, 2, 0.3)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kr5f8"]
-material = ExtResource("2_uqips")
+material = ExtResource("2_m4xjf")
 top_radius = 0.3
 bottom_radius = 0.3
 height = 0.1
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_i5jb4"]
-material = ExtResource("3_ufrq1")
+material = ExtResource("3_0b480")
 top_radius = 1.0
 bottom_radius = 1.0
 height = 0.19
@@ -35,10 +35,9 @@ height = 0.1
 radius = 0.3
 
 [node name="Target" type="Node3D" unique_id=1506330735]
-script = ExtResource("1_5ebp1")
+script = ExtResource("1_ggk8l")
 
 [node name="Base" type="StaticBody3D" parent="." unique_id=1819957130]
-visible = false
 collision_layer = 9
 collision_mask = 0
 
@@ -52,7 +51,7 @@ shape = SubResource("BoxShape3D_187ua")
 
 [node name="HitBox" type="StaticBody3D" parent="." unique_id=638222474]
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 collision_layer = 8
 collision_mask = 0
 
