@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var aim_ray: RayCast3D = $Cam/AimRay
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 const HOLE = preload("uid://tpbbr7m0pveq")
 
 const JUMP_VELOCITY = 4.5
@@ -30,6 +31,7 @@ func _physics_process(delta: float) -> void:
 
 func shoot() -> void:
 	print("Shooting")
+	animation_player.play("fire_pistol")
 	if aim_ray.is_colliding():
 		print("Hit")
 		var collider:Node3D = aim_ray.get_collider()

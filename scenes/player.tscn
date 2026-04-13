@@ -1,11 +1,49 @@
 [gd_scene format=3 uid="uid://bfg1ywhfw7xvw"]
 
 [ext_resource type="Script" uid="uid://5xkymndg5vf8" path="res://scripts/Player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://dq6y5kr1lwgx8" path="res://resources/Pistol_2.fbx" id="2_g2els"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
 radius = 0.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistol_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.09454259, 1.6779927, 0.04900996)]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "fire_pistol"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistol_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.09454259, 1.6779927, 0.04900996), Vector3(-0.11708218, 1.6527572, 0.28681895), Vector3(-0.09442679, 1.6780946, 0.047929298)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
+_data = {
+&"RESET": SubResource("Animation_qhqgy"),
+&"fire_pistol": SubResource("Animation_dqkch")
+}
 
 [node name="Player" type="CharacterBody3D" unique_id=630233011]
 collision_layer = 3
@@ -29,3 +67,9 @@ mesh = SubResource("SphereMesh_aqk2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1433167852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="Pistol_2" parent="." unique_id=27701558 instance=ExtResource("2_g2els")]
+transform = Transform3D(-0.055730477, -0.044252854, 0.49490988, 0.02438578, 0.4971694, 0.047200907, -0.49628565, 0.029398585, -0.053256694, 1.0164232, 1.179758, -1.4671464)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=898411787]
+libraries/ = SubResource("AnimationLibrary_qlg0r")
