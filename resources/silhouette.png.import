@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctf6tjucuwl8l"
-path.s3tc="res://.godot/imported/silouette.png-f9efd77b4c5e447ad5b7408d5e9347f5.s3tc.ctex"
+uid="uid://c7e7io7jpyubk"
+path.s3tc="res://.godot/imported/silhouette.png-48b0def4e6b37d0fc3947c57c715c05b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/silouette.png"
-dest_files=["res://.godot/imported/silouette.png-f9efd77b4c5e447ad5b7408d5e9347f5.s3tc.ctex"]
+source_file="res://resources/silhouette.png"
+dest_files=["res://.godot/imported/silhouette.png-48b0def4e6b37d0fc3947c57c715c05b.s3tc.ctex"]
 
 [params]
 

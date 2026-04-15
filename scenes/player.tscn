@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5xkymndg5vf8" path="res://scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dq6y5kr1lwgx8" path="res://resources/Pistol_2.fbx" id="2_g2els"]
+[ext_resource type="Script" uid="uid://blelscic42eca" path="res://scenes/pistol.gd" id="2_qhqgy"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
 radius = 0.25
@@ -13,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:rotation")
+tracks/0/path = NodePath("Cam/Weapon/Pistol/Pistol_2:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +30,7 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:rotation")
+tracks/0/path = NodePath("Cam/Weapon/Pistol/Pistol_2:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -51,7 +52,7 @@ script = ExtResource("1_4flbx")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=337165641]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8047392, 0)
 current = true
 
 [node name="AimRay" type="RayCast3D" parent="Cam" unique_id=1172259739]
@@ -59,17 +60,22 @@ target_position = Vector3(0, 0, -100)
 collision_mask = 14
 collide_with_areas = true
 
+[node name="Weapon" type="Node3D" parent="Cam" unique_id=805624166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8047392, 0)
+
+[node name="Pistol" type="Node3D" parent="Cam/Weapon" unique_id=823958832]
+script = ExtResource("2_qhqgy")
+
+[node name="Pistol_2" parent="Cam/Weapon/Pistol" unique_id=27701558 instance=ExtResource("2_g2els")]
+transform = Transform3D(-0.055730477, -0.04425285, 0.49490988, 0.02438578, 0.49716938, 0.047200907, -0.49628565, 0.029398583, -0.053256694, 1.016, 0.961, -1.014)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=691618103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9466529, 0.5667441)
-visible = false
 mesh = SubResource("SphereMesh_aqk2v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1433167852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3vyb7")
-
-[node name="Pistol_2" parent="." unique_id=27701558 instance=ExtResource("2_g2els")]
-transform = Transform3D(-0.055730477, -0.044252854, 0.49490988, 0.02438578, 0.4971694, 0.047200907, -0.49628565, 0.029398585, -0.053256694, 1.0164232, 1.179758, -1.4671464)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=898411787]
 libraries/ = SubResource("AnimationLibrary_qlg0r")

@@ -6,6 +6,7 @@ var targets:Array[Node] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	targets = get_tree().get_nodes_in_group("targets")
+	reset_targets()
 	
 
 

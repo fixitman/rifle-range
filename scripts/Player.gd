@@ -52,9 +52,9 @@ func shoot() -> void:
 		print("Hit")
 		var collider:Node3D = aim_ray.get_collider()
 		var shape = aim_ray.get_collider_shape()
-		print(shape)
-		if shape == 1: #bull			
-			var tar:Node3D = collider.get_parent()
+		print(collider)
+		if collider.name == "Head": 		
+			var tar:Node3D = collider.get_parent().get_parent()
 			if tar.has_method("reset"):			
 				tar.reset()
 		else:	

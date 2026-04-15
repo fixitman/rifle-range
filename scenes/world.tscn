@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cn684hse7g0ja"]
 
-[ext_resource type="PackedScene" uid="uid://clbilrw3wi3nw" path="res://scenes/target.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://caismldkn6jwp" path="res://scripts/world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bfg1ywhfw7xvw" path="res://scenes/player.tscn" id="2_aqk2v"]
 [ext_resource type="Material" uid="uid://d373rmjgtg5ql" path="res://resources/white.tres" id="3_k0juu"]
 [ext_resource type="Script" uid="uid://dk7msodsrxlh1" path="res://scripts/hud.gd" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://clbilrw3wi3nw" path="res://scenes/target.tscn" id="5_qfnet"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
 size = Vector3(0.5, 4, 60)
@@ -81,39 +81,6 @@ shape = SubResource("BoxShape3D_tlwt5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=961584809]
 environment = SubResource("Environment_aqk2v")
-
-[node name="Row" type="Node3D" parent="." unique_id=1788347873]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -10)
-
-[node name="Target" parent="Row" unique_id=1506330735 groups=["targets"] instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-
-[node name="Target2" parent="Row" unique_id=1936806101 groups=["targets"] instance=ExtResource("1_f3sb7")]
-
-[node name="Target3" parent="Row" unique_id=184099755 groups=["targets"] instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
-
-[node name="Row2" type="Node3D" parent="." unique_id=726083540]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -25)
-
-[node name="Target" parent="Row2" unique_id=380504854 groups=["targets"] instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-
-[node name="Target2" parent="Row2" unique_id=71694964 groups=["targets"] instance=ExtResource("1_f3sb7")]
-
-[node name="Target3" parent="Row2" unique_id=11926872 groups=["targets"] instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
-
-[node name="Row3" type="Node3D" parent="." unique_id=485124037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -50)
-
-[node name="Target" parent="Row3" unique_id=1389703835 groups=["targets"] instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-
-[node name="Target2" parent="Row3" unique_id=506530055 groups=["targets"] instance=ExtResource("1_f3sb7")]
-
-[node name="Target3" parent="Row3" unique_id=874064775 groups=["targets"] instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="HUD" type="Control" parent="." unique_id=933864427]
 layout_mode = 3
@@ -219,8 +186,8 @@ grow_horizontal = 0
 allow_greater = true
 alignment = 2
 
-[node name="Target" parent="HUD" unique_id=407538972 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2557379, 6.474683, -7.9271965)
+[node name="Target" parent="." unique_id=1632679261 groups=["targets"] instance=ExtResource("5_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40.565823)
 
 [connection signal="value_changed" from="HUD/CameraSpeed" to="HUD" method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="HUD/MoveSpeed" to="HUD" method="_on_move_speed_value_changed"]
