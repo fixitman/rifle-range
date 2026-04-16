@@ -9,31 +9,43 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:position")
+tracks/0/path = NodePath("Pistol_2/Pistol_2:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.016, 0.961, -1.014)]
+"update": 1,
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pistol_2:rotation")
+tracks/1/path = NodePath("Pistol_2:rotation:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pistol_2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.09424778, 1.6772614, 0.04886922)]
+"values": [Vector3(1, -1, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_4hq71"]
 resource_name = "aim"
-length = 0.35
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,22 +53,10 @@ tracks/0/path = NodePath("Pistol_2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.35),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.016, 0.961, -1.014), Vector3(0, 1.43, -1.014)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pistol_2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.09424778, 1.6772614, 0.04886922), Vector3(0, 1.5707964, 0)]
+"values": [Vector3(1, -1, -1), Vector3(0, -0.37, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_t6oaa"]
@@ -64,32 +64,20 @@ resource_name = "fire"
 length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Pistol_2:position")
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistol_2:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.016, 0.961, -1.014)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pistol_2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.09424778, 1.6772614, 0.04886922), Vector3(-0.14835298, 1.6318829, 0.37873644), Vector3(-0.09424778, 1.6772614, 0.04886922)]
+"update": 1,
+"values": [0.0, 0.3, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_88qyl"]
 resource_name = "un_aim"
-length = 0.35
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,22 +85,10 @@ tracks/0/path = NodePath("Pistol_2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.35),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 1.43, -1.014), Vector3(1.016, 0.961, -1.014)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pistol_2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, 0), Vector3(-0.09424778, 1.6772614, 0.04886922)]
+"values": [Vector3(0, -0.37, -1), Vector3(1, -1, -1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4hq71"]
@@ -126,8 +102,11 @@ _data = {
 [node name="Pistol" type="Node3D" unique_id=625981109]
 script = ExtResource("1_buff3")
 
-[node name="Pistol_2" parent="." unique_id=27701558 instance=ExtResource("2_1e3ry")]
-transform = Transform3D(-0.055354133, -0.044136383, 0.4949625, 0.024316482, 0.4971866, 0.047054153, -0.4963311, 0.029280778, -0.052896198, 1.016, 0.961, -1.014)
+[node name="Pistol_2" type="Node3D" parent="." unique_id=1730639072]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 1, -1, -1)
+
+[node name="Pistol_2" parent="Pistol_2" unique_id=27701558 instance=ExtResource("2_1e3ry")]
+transform = Transform3D(-2.1855689e-08, 0, 0.49999997, 0, 0.4999999, 0, -0.49999988, 0, -2.1855692e-08, 0, 0, 0)
 
 [node name="Shot" type="AudioStreamPlayer3D" parent="." unique_id=798342620]
 stream = ExtResource("3_1e3ry")

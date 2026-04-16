@@ -24,7 +24,6 @@ collide_with_areas = true
 
 [node name="Weapon" type="Node3D" parent="Cam" unique_id=805624166]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8047392, 0)
 
 [node name="Pistol" parent="Cam/Weapon" unique_id=625981109 instance=ExtResource("2_g2els")]
 
