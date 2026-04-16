@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tpbbr7m0pveq"]
 
-[ext_resource type="Texture2D" uid="uid://cwsoapi0o6mhj" path="res://resources/bullet_hole.png" id="1_lerre"]
+[ext_resource type="Texture2D" uid="uid://dy6dtnjdsyr6t" path="res://resources/bullet_hole.png" id="1_lerre"]
 
 [node name="Decal" type="Decal" unique_id=76310929]
 layers = 15

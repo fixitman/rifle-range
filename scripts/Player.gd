@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 @onready var aim_ray: RayCast3D = $Cam/AimRay
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var weapon: Node3D = %Weapon.get_child(0)
 @onready var cam: Camera3D = %Cam
 
@@ -59,7 +58,6 @@ func shoot() -> void:
 	if aim_ray.is_colliding():
 		#print("Hit")
 		var collider:Node3D = aim_ray.get_collider()
-		var shape = aim_ray.get_collider_shape()
 		#print(collider)
 		if collider.name == "Head": 		
 			var tar:Node3D = collider.get_parent().get_parent()
@@ -84,11 +82,11 @@ func handle_buttons():
 			aim()
 			aimed = true
 
-func place_hole(position:Vector3, normal:Vector3) -> void:
+func place_hole(pos:Vector3, normal:Vector3) -> void:
 	
 	var hole:Node3D = HOLE.instantiate()
 	get_tree().root.add_child(hole)
-	hole.global_position = position
+	hole.global_position = pos
 	#print("gto = ",hole.global_transform.origin)
 	#print("look at = ",hole.global_transform.origin + normal)
 	hole.look_at(hole.global_transform.origin + normal,Vector3.UP)
