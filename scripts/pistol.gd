@@ -12,6 +12,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+func draw():
+	animation_player.play("draw")
+	
+func holster():
+	animation_player.play_backwards("draw")
+	
 
 func shoot():
 	audio_stream_player_3d.play()
@@ -22,4 +28,8 @@ func aim():
 	animation_player.play("aim")
 	
 func un_aim():
-	animation_player.play("un_aim")
+	animation_player.play_backwards("aim")
+
+
+func _on_timer_timeout() -> void:
+	holster()

@@ -16,6 +16,7 @@ script = ExtResource("1_4flbx")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8047392, 0)
 current = true
+fov = 90.0
 
 [node name="AimRay" type="RayCast3D" parent="Cam" unique_id=1172259739]
 target_position = Vector3(0, 0, -100)

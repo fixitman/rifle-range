@@ -1,24 +1,23 @@
 extends Node3D
 
 var targets:Array[Node] = []
+@export var distance := 8.0
+const TARGET = preload("uid://clbilrw3wi3nw")
+@onready var player: CharacterBody3D = $Player
+@onready var target_controller: Node = $TargetController
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	targets = get_tree().get_nodes_in_group("targets")
-	reset_targets()
+	player.target_hit.connect(target_controller.on_target_hit)
+	pass
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("targets"):
-		reset_targets()
+	#if Input.is_action_just_pressed("targets"):
+		#hide_all_targets()
+	pass
 		
-
-
-func reset_targets() -> void:
-	for target in targets:
-		if !target.triggered:
-			target.trigger()
 		

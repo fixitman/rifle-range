@@ -35,7 +35,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_kuto0"]
-resource_name = "reset"
+resource_name = "hide"
 length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -51,7 +51,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_b5a2r"]
-resource_name = "trigger"
+resource_name = "show"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -69,11 +69,12 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bu876"]
 _data = {
 &"RESET": SubResource("Animation_nlbrr"),
-&"reset": SubResource("Animation_kuto0"),
-&"trigger": SubResource("Animation_b5a2r")
+&"hide": SubResource("Animation_kuto0"),
+&"show": SubResource("Animation_b5a2r")
 }
 
 [node name="Target" type="Node3D" unique_id=1632679261]
+visible = false
 script = ExtResource("1_5ebp1")
 
 [node name="Carriage" type="Node3D" parent="." unique_id=1506330735]

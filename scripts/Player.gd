@@ -3,8 +3,11 @@ extends CharacterBody3D
 @onready var aim_ray: RayCast3D = $Cam/AimRay
 @onready var weapon: Node3D = %Weapon.get_child(0)
 @onready var cam: Camera3D = %Cam
+@onready var timer: Timer = %Timer
 
 const HOLE = preload("uid://tpbbr7m0pveq")
+
+signal target_hit(t: Target)
 
 const JUMP_VELOCITY = 4.5
 var move_speed:float = 3.0
@@ -13,12 +16,16 @@ var camera_accel:float = 28
 var current_camera_speed:float = 0
 var current_camera_speed_x:float = 0
 var aimed:bool = false
-
 var settings: Settings
 
 func _ready() -> void:
 	update_settings()
 	settings.settings_changed.connect(_on_settings_changed)
+	await get_tree().create_timer(.5).timeout
+	weapon.draw()
+	
+	
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -40,7 +47,7 @@ func rotate_camera(delta:float):
 	if y_rotation_direction:
 		var target_camera_speed = camera_speed * -y_rotation_direction
 		current_camera_speed = move_toward(current_camera_speed,target_camera_speed,camera_accel * delta)
-		rotate_y(deg_to_rad(current_camera_speed * delta))
+		rotate_y(deg_to_rad(current_camera_speed * delta))		
 	else:
 		current_camera_speed = 0
 	
@@ -48,6 +55,7 @@ func rotate_camera(delta:float):
 		var target_camera_speed = camera_speed * x_rotation_direction
 		current_camera_speed_x = move_toward(current_camera_speed_x,target_camera_speed,camera_accel * delta)
 		%Cam.rotate_x( deg_to_rad( current_camera_speed_x * delta))
+		%Cam.rotation.x = clamp(%Cam.rotation.x,deg_to_rad(-60),deg_to_rad(30))
 	else:
 		current_camera_speed_x = 0
 
@@ -58,17 +66,18 @@ func shoot() -> void:
 	if aim_ray.is_colliding():
 		#print("Hit")
 		var collider:Node3D = aim_ray.get_collider()
+		target_hit.emit(collider.get_parent().get_parent())
 		#print(collider)
-		if collider.name == "Head": 		
-			var tar:Node3D = collider.get_parent().get_parent()
-			if tar.has_method("reset"):			
-				tar.reset()
-		else:	
-			var collision_point = aim_ray.get_collision_point()
-			var collision_normal = aim_ray.get_collision_normal()
-			#print(collision_point)
-			#print(collision_normal)
-			place_hole(collision_point,collision_normal)
+		#if collider.name == "Head": 		
+			#var tar:Node3D = collider.get_parent().get_parent()
+			#if tar.has_method("reset"):			
+				#tar.reset()
+		#else:	
+			#var collision_point = aim_ray.get_collision_point()
+			#var collision_normal = aim_ray.get_collision_normal()
+			##print(collision_point)
+			##print(collision_normal)
+			#place_hole(collision_point,collision_normal)
 
 func handle_buttons():
 	if Input.is_action_just_pressed("shoot"):

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfg1ywhfw7xvw" path="res://scenes/player.tscn" id="2_aqk2v"]
 [ext_resource type="Material" uid="uid://d373rmjgtg5ql" path="res://resources/white.tres" id="3_k0juu"]
 [ext_resource type="Script" uid="uid://dk7msodsrxlh1" path="res://scripts/hud.gd" id="5_71j4m"]
-[ext_resource type="PackedScene" uid="uid://clbilrw3wi3nw" path="res://scenes/target.tscn" id="5_qfnet"]
+[ext_resource type="Script" uid="uid://b4nhn25rkfhlq" path="res://scripts/target_controller.gd" id="6_qfnet"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
 size = Vector3(0.5, 4, 60)
@@ -186,8 +186,8 @@ grow_horizontal = 0
 allow_greater = true
 alignment = 2
 
-[node name="Target" parent="." unique_id=1632679261 groups=["targets"] instance=ExtResource("5_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+[node name="TargetController" type="Node" parent="." unique_id=1461081468]
+script = ExtResource("6_qfnet")
 
 [connection signal="value_changed" from="HUD/CameraSpeed" to="HUD" method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="HUD/MoveSpeed" to="HUD" method="_on_move_speed_value_changed"]
