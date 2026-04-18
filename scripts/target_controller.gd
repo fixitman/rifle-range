@@ -1,7 +1,9 @@
 extends Node
-const TARGET = preload("uid://clbilrw3wi3nw")
-const DISTANCE = -8
-const NUM_TARGETS = 10
+const TARGET = preload("res://scenes/target.tscn")
+const DISTANCE = -30
+const WIDTH = 20
+const TARGET_WIDTH = .67
+const NUM_TARGETS:int = 8
 var targets: Array[Target] = []
 
 # Called when the node enters the scene tree for the first time.
@@ -13,12 +15,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func initialize_targets():
-	for x in range(NUM_TARGETS):
+	var space:float = (WIDTH - (NUM_TARGETS*TARGET_WIDTH))/(NUM_TARGETS + 1)
+	
+	for i in range(NUM_TARGETS):
+		var x = space + (i+.5) * TARGET_WIDTH + (space * i) - WIDTH/2.0
 		var t:Node3D  = TARGET.instantiate()
-		t.position = Vector3(x*2 + .6 + -10, 0, DISTANCE)
+		t.position = Vector3(x, 0, DISTANCE)
 		t.add_to_group("targets")
 		add_child(t)
-		targets.insert(x,t)
+		targets.insert(i,t)
 
 	show_all_targets()
 	await get_tree().create_timer(1.5).timeout
