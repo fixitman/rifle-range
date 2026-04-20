@@ -1,20 +1,15 @@
-extends Node3D
+extends Weapon
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shoot_sound: AudioStreamPlayer3D = $ShootSound
 @onready var reload_sound: AudioStreamPlayer3D = $ReloadSound
 
 
-const CLIP_SIZE = 10
-
 enum FIRING_MODE {SEMI}
-var mode:FIRING_MODE
-var bullets_left:int
-var can_shoot = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	bullets_left = CLIP_SIZE
-	mode = mode + 1 % FIRING_MODE.size()
-	print(mode)
+	rounds_remaining = CLIP_SIZE
+	firing_mode = firing_mode + 1 % FIRING_MODE.size()
+	print(firing_mode)
 	pass # Replace with function body.
 
 
@@ -38,9 +33,9 @@ func shoot():
 	shoot_sound.play()
 	animation_player.play("fire")
 	
-	bullets_left -= 1
-	print(bullets_left)
-	if bullets_left <= 0:
+	rounds_remaining -= 1
+	print(rounds_remaining)
+	if rounds_remaining <= 0:
 		reload()
 	
 func reload():
@@ -54,7 +49,7 @@ func reload():
 	animation_player.play("draw")
 	await animation_player.animation_finished
 	can_shoot = true
-	bullets_left = CLIP_SIZE
+	rounds_remaining = CLIP_SIZE
 
 func aim():
 	animation_player.play("aim")

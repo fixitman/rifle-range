@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var weapon: Node3D = %Weapon.get_child(0)
 @onready var cam: Camera3D = %Cam
 @onready var timer: Timer = %Timer
+@onready var weapon_controller: Node3D = $WeaponController
 
 const HOLE = preload("uid://tpbbr7m0pveq")
 

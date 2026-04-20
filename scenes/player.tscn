@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5xkymndg5vf8" path="res://scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dxftmg4y31kly" path="res://scenes/pistol.tscn" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://d3377onhlmsuq" path="res://scenes/Rifle.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://r38qj4u3lxoh" path="res://scenes/weapon_controller.tscn" id="4_dqkch"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
 radius = 0.25
@@ -40,3 +41,5 @@ mesh = SubResource("SphereMesh_aqk2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1433167852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="WeaponController" parent="." unique_id=2073429069 instance=ExtResource("4_dqkch")]
