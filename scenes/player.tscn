@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5xkymndg5vf8" path="res://scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dxftmg4y31kly" path="res://scenes/pistol.tscn" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://d3377onhlmsuq" path="res://scenes/Rifle.tscn" id="3_qhqgy"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
 radius = 0.25
@@ -27,6 +28,10 @@ collide_with_areas = true
 unique_name_in_owner = true
 
 [node name="Pistol" parent="Cam/Weapon" unique_id=625981109 instance=ExtResource("2_g2els")]
+
+[node name="Rifle" parent="Cam/Weapon" unique_id=1763586901 instance=ExtResource("3_qhqgy")]
+transform = Transform3D(0.9848077, -0.17364818, 0, 0.17364818, 0.9848077, 0, 0, 0, 1, 0, 0.75, -2.25)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=691618103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9466529, 0.5667441)

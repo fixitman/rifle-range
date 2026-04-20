@@ -1,16 +1,15 @@
-[gd_scene format=3 uid="uid://dxftmg4y31kly"]
+[gd_scene format=3 uid="uid://d3377onhlmsuq"]
 
-[ext_resource type="Script" uid="uid://blelscic42eca" path="res://scripts/pistol.gd" id="1_buff3"]
-[ext_resource type="PackedScene" uid="uid://dq6y5kr1lwgx8" path="res://resources/Pistol_2.fbx" id="2_1e3ry"]
-[ext_resource type="AudioStream" uid="uid://b4do32c57mlmd" path="res://resources/weapon_gun_walther_ppq_X_42.mp3" id="3_1e3ry"]
-[ext_resource type="AudioStream" uid="uid://bd52kk1shluq0" path="res://resources/276960__gfl7__g36c-reload-sound.mp3" id="4_t6oaa"]
+[ext_resource type="Script" uid="uid://blelscic42eca" path="res://scripts/pistol.gd" id="1_iq642"]
+[ext_resource type="PackedScene" uid="uid://dlmo5k5ndcf2s" path="res://resources/AssaultRifle_5.fbx" id="2_iq642"]
+[ext_resource type="AudioStream" uid="uid://b4do32c57mlmd" path="res://resources/weapon_gun_walther_ppq_X_42.mp3" id="3_c1yqa"]
 
 [sub_resource type="Animation" id="Animation_1e3ry"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:rotation:x")
+tracks/0/path = NodePath("Rifle_2:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pistol_2:position")
+tracks/1/path = NodePath("Rifle_2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pistol_2:rotation")
+tracks/2/path = NodePath("Rifle_2:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +49,7 @@ length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:position")
+tracks/0/path = NodePath("Rifle_2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -66,7 +65,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:position")
+tracks/0/path = NodePath("Rifle_2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -78,7 +77,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pistol_2:rotation")
+tracks/1/path = NodePath("Rifle_2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -94,7 +93,7 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pistol_2:rotation:x")
+tracks/0/path = NodePath("Rifle_2:rotation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -112,20 +111,20 @@ _data = {
 &"fire": SubResource("Animation_t6oaa")
 }
 
-[node name="Pistol" type="Node3D" unique_id=625981109]
-script = ExtResource("1_buff3")
+[node name="Rifle" type="Node3D" unique_id=625981109]
+script = ExtResource("1_iq642")
 
-[node name="Pistol_2" type="Node3D" parent="." unique_id=1730639072]
+[node name="Rifle_2" type="Node3D" parent="." unique_id=1730639072]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 1, 0, -0.99999994, -4.371139e-08, 1, -2, 0)
 
-[node name="Pistol_2" parent="Pistol_2" unique_id=27701558 instance=ExtResource("2_1e3ry")]
-transform = Transform3D(-2.1855689e-08, 0, 0.49999997, 0, 0.4999999, 0, -0.49999988, 0, -2.1855692e-08, 0, 0, 0)
+[node name="AssaultRifle_5" parent="Rifle_2" unique_id=609728245 instance=ExtResource("2_iq642")]
+transform = Transform3D(9.553427e-16, 2.1855694e-08, 0.5, 0.5, -2.1855694e-08, 0, 2.1855694e-08, 0.5, -2.1855694e-08, 0, 0, 0)
 
-[node name="ShootSound" type="AudioStreamPlayer3D" parent="." unique_id=580214897]
-stream = ExtResource("3_1e3ry")
+[node name="Shot" type="AudioStreamPlayer3D" parent="." unique_id=798342620]
+stream = ExtResource("3_c1yqa")
 
-[node name="ReloadSound" type="AudioStreamPlayer3D" parent="." unique_id=1926130356]
-stream = ExtResource("4_t6oaa")
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=580214897]
+stream = ExtResource("3_c1yqa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628505630]
 unique_name_in_owner = true
