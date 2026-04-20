@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7e7io7jpyubk" path="res://resources/silhouette.png" id="2_b5a2r"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nlbrr"]
-size = Vector2(0.66, 1.2)
+size = Vector2(0.68, 1.4)
 orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5a2r"]
@@ -33,6 +33,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_kuto0"]
 resource_name = "hide"
@@ -49,6 +61,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_b5a2r"]
 resource_name = "show"
@@ -64,6 +88,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bu876"]
