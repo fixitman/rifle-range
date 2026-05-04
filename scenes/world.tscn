@@ -140,6 +140,7 @@ offset_top = 54.0
 offset_right = -174.0
 offset_bottom = 77.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
 text = "Look Speed"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -149,11 +150,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -264.0
-offset_top = 97.0
+offset_left = -310.0
+offset_top = 95.0
 offset_right = -170.0
-offset_bottom = 120.0
+offset_bottom = 129.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
 text = "Move Speed"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -186,9 +188,25 @@ grow_horizontal = 0
 allow_greater = true
 alignment = 2
 
+[node name="ExitButton" type="Button" parent="HUD" unique_id=1716991222]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_top = 185.0
+offset_right = -66.0
+offset_bottom = 221.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "   Exit   
+"
+autowrap_trim_flags = 0
+
 [node name="TargetController" type="Node" parent="." unique_id=1461081468]
 script = ExtResource("6_qfnet")
 
 [connection signal="value_changed" from="HUD/CameraSpeed" to="HUD" method="_on_camera_speed_value_changed"]
 [connection signal="value_changed" from="HUD/MoveSpeed" to="HUD" method="_on_move_speed_value_changed"]
 [connection signal="value_changed" from="HUD/CameraAccel" to="HUD" method="_on_camera_accel_value_changed"]
+[connection signal="pressed" from="HUD/ExitButton" to="." method="_on_exit_button_pressed"]
